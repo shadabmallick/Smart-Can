@@ -46,6 +46,9 @@
         <activity android:name=".Activity.ActivityInfographic"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".Activity.ActivityBlog"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:windowSoftInputMode="stateHidden"></activity>
 
 
 

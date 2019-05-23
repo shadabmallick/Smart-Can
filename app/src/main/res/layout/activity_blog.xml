@@ -5,77 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@mipmap/splash_bg">
-    <LinearLayout
+    android:background="@android:color/white">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="right"
-        android:layout_marginTop="50dp"
-
-      >
-
-
+        android:background="@color/colorBlue"
+        android:gravity="center_vertical"
+        android:layout_height="?android:attr/actionBarSize">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/title"
+            android:text="Blog"
+            android:textSize="16dp"
+            android:textColor="@android:color/white"/>
 
         <ImageView
-            android:id="@+id/img2"
-            android:layout_width="wrap_content"
+            android:id="@+id/img_home"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
 
-            android:layout_height="wrap_content"
-            android:src="@mipmap/jumac_logo"
-
-
-
-
-
-
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/home"
+            android:layout_marginRight="20dp"
+            android:tint="@android:color/white"
+            android:scaleType="fitEnd"
             />
+    </RelativeLayout>
 
-    </LinearLayout>
 
-    <LinearLayout
 
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyler_view_news"
         android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-         android:layout_marginBottom="120dp"
-        android:orientation="vertical"
-        android:layout_height="wrap_content">
-
-        <RelativeLayout
-            android:id="@+id/rl_login"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:background="@mipmap/btn_orange">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Login"
-                android:textSize="16dp"
-                android:textColor="@android:color/white"/>
-
-
-        </RelativeLayout>
-        <RelativeLayout
-            android:id="@+id/rl_register"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:layout_marginTop="10dp"
-            android:layout_below="@+id/rl_login">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Registration"
-                android:textSize="16dp"/>
-
-
-        </RelativeLayout>
-
-
-    </LinearLayout>
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:padding="10dp"
+        android:layout_marginBottom="70dp"></android.support.v7.widget.RecyclerView>
 
     <RelativeLayout
         android:id="@+id/footer"
@@ -99,6 +65,7 @@
 
                 />
             <TextView
+                android:id="@+id/tv_enq_new"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="News"/>
@@ -144,7 +111,7 @@
                 android:id="@+id/info_blog"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/blog"
+                android:src="@mipmap/blog_h"
 
 
 

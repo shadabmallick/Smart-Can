@@ -65,6 +65,7 @@
 
                 />
             <TextView
+                android:id="@+id/tv_enq_new"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="News"/>
@@ -87,12 +88,13 @@
                 android:id="@+id/info_graphic"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/infographic"
+                android:src="@mipmap/infographic_h"
 
 
 
                 />
             <TextView
+                android:id="@+id/tv_enq_info"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Infographic"/>
@@ -116,6 +118,7 @@
 
                 />
             <TextView
+                android:id="@+id/tv_enq_blog"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Blog"/>
@@ -138,6 +141,7 @@
 
                 />
             <TextView
+                android:id="@+id/tv_enq_enquiry"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Enquiry"/>

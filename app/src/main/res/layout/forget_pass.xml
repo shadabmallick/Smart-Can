@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-
+            android:layout_marginTop="5dp"
             android:layout_alignParentLeft="true"
             android:layout_marginStart="0dp"
             android:layout_marginLeft="0dp"
@@ -102,26 +102,11 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Register"
+                    android:text="Submit"
                     android:textSize="16dp"
+
+                    android:id="@+id/tv_forget"
                     android:textColor="@android:color/white"/>
-
-
-            </RelativeLayout>
-            <RelativeLayout
-                android:id="@+id/rl_forget_pass"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/rl_submit">
-                <TextView
-                    android:id="@+id/tv_login"
-                    android:textColor="@android:color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Forget Password ?"
-                    android:textSize="16dp"/>
 
 
             </RelativeLayout>
@@ -133,16 +118,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_below="@+id/rl_submit">
                 <TextView
-                    android:id="@+id/tv_new"
-                    android:textColor="@android:color/white"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="New User ?"/>
-                <TextView
                     android:id="@+id/tv_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Register Now"
+                    android:text="Login"
                     android:textColor="@android:color/white"
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@+id/tv_new"

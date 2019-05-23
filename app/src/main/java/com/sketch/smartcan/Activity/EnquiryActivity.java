@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -18,7 +19,8 @@ import java.util.Locale;
 public class EnquiryActivity extends AppCompatActivity {
     boolean isPlay = false;
     TextView tv_login,title,tv_new,tv_blog,tv_info,tv_enq;
-    ImageView img_home,img_news;
+    ImageView img_home,img_news,info_graphic;
+    LinearLayout llblog;
     RelativeLayout rl_login;
     Typeface typeface_bold,typeface_light,typeface_regular,typeface_medium;
 
@@ -44,6 +46,8 @@ public class EnquiryActivity extends AppCompatActivity {
         tv_enq=findViewById(R.id.tv_enq_enquiry);
         tv_info=findViewById(R.id.tv_enq_info);
         tv_blog=findViewById(R.id.tv_enq_blog);
+        info_graphic=findViewById(R.id.info_graphic);
+        llblog=findViewById(R.id.llblog);
 
         title.setTypeface(typeface_bold);
         tv_blog.setTypeface(typeface_regular);
@@ -56,18 +60,23 @@ public class EnquiryActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
         });
-/*
-        rl_login.setOnClickListener(new View.OnClickListener() {
+        info_graphic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+                startActivity(new Intent(getApplicationContext(), ActivityInfographic.class));
             }
         });
-*/
         img_news.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), NewsActivity.class));
+            }
+        });
+
+        llblog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ActivityBlog.class));
             }
         });
     }
