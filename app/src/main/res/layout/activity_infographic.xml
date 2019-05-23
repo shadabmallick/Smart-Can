@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@android:color/white">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:background="@color/colorBlue"
+        android:gravity="center_vertical"
+        android:layout_height="?android:attr/actionBarSize">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/title"
+            android:text="Infographic"
+            android:textSize="16dp"
+            android:textColor="@android:color/white"/>
+
+        <ImageView
+            android:id="@+id/img_home"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+
+            android:layout_alignParentRight="true"
+            android:src="@mipmap/home"
+            android:layout_marginRight="20dp"
+            android:tint="@android:color/white"
+            android:scaleType="fitEnd"
+            />
+    </RelativeLayout>
+
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyler_view_news"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:padding="10dp"
+        android:layout_marginBottom="70dp"></android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        >
+        <LinearLayout
+            android:id="@+id/llnews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_news"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/news"
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="News"/>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/llnews">
+
+            <ImageView
+                android:id="@+id/info_graphic"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/infographic"
+
+
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Infographic"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llblog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/llinfo">
+            <ImageView
+                android:id="@+id/info_blog"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/blog"
+
+
+
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blog"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llenquiry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/llblog">
+            <ImageView
+                android:id="@+id/enquiry"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/enq"
+
+
+
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enquiry"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

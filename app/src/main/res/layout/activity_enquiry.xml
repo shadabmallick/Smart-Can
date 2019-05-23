@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@android:color/white">
+    <include layout="@layout/action_bar" />
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="130dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/layout_background"
+        android:layout_marginBottom="90dp">
+        <LinearLayout android:id="@+id/menu_ll"
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:layout_height="fill_parent">
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_gravity="center"
+                    android:layout_height="30dp"
+                    android:tint="@android:color/white"
+                    android:src="@mipmap/avatar"/>
+                <EditText
+                    android:id="@+id/edt_name"
+                    android:hint="Name"
+                    android:backgroundTint="@android:color/holo_blue_light"
+                    android:textColorHint="@android:color/white"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <ImageView
+                    android:layout_gravity="center"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:tint="@android:color/white"
+
+                    android:src="@mipmap/company"/>
+                <EditText
+                    android:id="@+id/edt_company"
+                    android:hint="Company"
+                    android:backgroundTint="@android:color/holo_blue_light"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@android:color/white"
+
+                    android:layout_marginLeft="20dp"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_gravity="center"
+                    android:layout_height="30dp"
+                    android:tint="@android:color/white"
+
+                    android:src="@mipmap/location"/>
+                <EditText
+                    android:id="@+id/edt_location"
+                    android:layout_width="match_parent"
+                    android:backgroundTint="@android:color/holo_blue_light"
+
+                    android:layout_height="wrap_content"
+                    android:hint="Location"
+                    android:textColorHint="@android:color/white"
+
+                    android:layout_marginLeft="20dp"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:tint="@android:color/white"
+
+                    android:layout_gravity="center"
+                    android:src="@mipmap/mail"/>
+                <EditText
+                    android:id="@+id/edt_mail"
+                    android:layout_width="match_parent"
+                    android:hint="Email Id"
+                    android:textColorHint="@android:color/white"
+                    android:backgroundTint="@android:color/holo_blue_light"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:tint="@android:color/white"
+
+                    android:layout_gravity="center"
+                    android:src="@mipmap/mobile"/>
+
+                <EditText
+                    android:id="@+id/edt_phone"
+                    android:hint="Phone Number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@android:color/white"
+                    android:backgroundTint="@android:color/holo_blue_light"
+
+                    android:layout_marginLeft="20dp"/>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:tint="@android:color/white"
+
+                    android:src="@mipmap/chat"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/edittext_border"
+                    android:minHeight="100dp"
+                    android:gravity="start"
+                    android:textColorHint="@android:color/white"
+
+                    android:padding="10dp"
+                    android:hint="Type your mesage"
+                    android:layout_marginLeft="20dp"/>
+
+
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:id="@+id/rl_submit"
+
+                android:layout_marginLeft="60dp"
+                android:layout_marginRight="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="15dp"
+                android:background="@mipmap/btn_orange">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:textSize="16dp"
+                    android:textColor="@android:color/white"/>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+    <RelativeLayout
+        android:id="@+id/footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        >
+        <LinearLayout
+            android:id="@+id/llnews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:gravity="center">
+            <ImageView
+                android:id="@+id/img_news"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/news"
+
+                />
+            <TextView
+                android:id="@+id/tv_enq_new"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="News"/>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/llinfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/llnews">
+
+            <ImageView
+                android:id="@+id/info_graphic"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/infographic"
+
+
+
+                />
+            <TextView
+                android:id="@+id/tv_enq_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Infographic"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llblog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/llinfo">
+            <ImageView
+                android:id="@+id/info_blog"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/blog"
+
+
+
+
+                />
+            <TextView
+                android:id="@+id/tv_enq_blog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Blog"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llenquiry"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/llblog">
+            <ImageView
+                android:id="@+id/enquiry"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/enq"
+
+
+
+                />
+            <TextView
+                android:id="@+id/tv_enq_enquiry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Enquiry"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
