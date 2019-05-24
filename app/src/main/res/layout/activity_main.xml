@@ -50,6 +50,7 @@
             android:gravity="center"
             android:background="@mipmap/btn_orange">
             <TextView
+                android:id="@+id/tv_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Login"
@@ -66,6 +67,7 @@
             android:layout_marginTop="10dp"
             android:layout_below="@+id/rl_login">
             <TextView
+                android:id="@+id/tv_registration"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Registration"
@@ -83,6 +85,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:gravity="center"
+
         >
         <LinearLayout
             android:id="@+id/llnews"
@@ -90,6 +93,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_margin="10dp"
+
             android:gravity="center">
             <ImageView
                 android:id="@+id/img_news"
@@ -99,6 +103,7 @@
 
                 />
             <TextView
+                android:id="@+id/tv_enq_new"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="News"/>

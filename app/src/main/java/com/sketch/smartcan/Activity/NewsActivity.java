@@ -60,18 +60,12 @@ public class NewsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.news_activity);
-        AssetManager am = getApplicationContext().getAssets();
-
-        typeface_bold = Typeface.createFromAsset(am,
-                String.format(Locale.US, "fonts/%s", "Raleway-Bold.ttf"));
-        typeface_light = Typeface.createFromAsset(am,
-                String.format(Locale.US, "fonts/%s", "Raleway-Light.ttf"));
-        typeface_medium = Typeface.createFromAsset(am,
-                String.format(Locale.US, "fonts/%s", "Raleway-Medium.ttf"));
-
-        typeface_regular = Typeface.createFromAsset(am,
-                String.format(Locale.US, "fonts/%s", "Raleway-Regular.ttf"));
+        InitFont();
         initViews();
+        SetFont();
+
+
+
     }
     private void initViews(){
         enquiry=findViewById(R.id.enquiry);
@@ -79,6 +73,11 @@ public class NewsActivity extends AppCompatActivity {
         llblog=findViewById(R.id.llblog);
         llenquiry=findViewById(R.id.llenquiry);
         llinfo=findViewById(R.id.llinfo);
+        title=findViewById(R.id.news_title);
+        tv_new=findViewById(R.id.tv_enq_new);
+        tv_enq=findViewById(R.id.tv_enq_enquiry);
+        tv_info=findViewById(R.id.tv_enq_info);
+        tv_blog=findViewById(R.id.tv_enq_blog);
         RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyler_view_news);
         //recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -87,6 +86,7 @@ public class NewsActivity extends AppCompatActivity {
         tv_enq=findViewById(R.id.tv_enq_enquiry);
         tv_info=findViewById(R.id.tv_enq_info);
         tv_blog=findViewById(R.id.tv_enq_blog);
+
         ArrayList<AndroidVersion> androidVersions = prepareData();
         DataAdapter adapter = new DataAdapter(getApplicationContext(),androidVersions);
         recyclerView.setAdapter(adapter);
@@ -123,6 +123,28 @@ public class NewsActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+    public  void InitFont(){
+        AssetManager am = getApplicationContext().getAssets();
+
+        typeface_bold = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "Raleway-Bold.ttf"));
+        typeface_light = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "Raleway-Light.ttf"));
+        typeface_medium = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "Raleway-Medium.ttf"));
+
+        typeface_regular = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "Raleway-Regular.ttf"));
+
+    }
+    public void SetFont(){
+        title.setTypeface(typeface_bold);
+        tv_blog.setTypeface(typeface_regular);
+        tv_enq.setTypeface(typeface_regular);
+        tv_info.setTypeface(typeface_regular);
+        tv_new.setTypeface(typeface_regular);
 
     }
     private ArrayList<AndroidVersion> prepareData(){

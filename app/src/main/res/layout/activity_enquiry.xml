@@ -167,6 +167,7 @@
                     android:background="@drawable/edittext_border"
                     android:minHeight="100dp"
                     android:gravity="start"
+                    android:id="@+id/edt_message"
                     android:textColorHint="@android:color/white"
 
                     android:padding="10dp"
@@ -190,6 +191,7 @@
                 android:layout_marginTop="15dp"
                 android:background="@mipmap/btn_orange">
                 <TextView
+                    android:id="@+id/tv_submit"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Submit"

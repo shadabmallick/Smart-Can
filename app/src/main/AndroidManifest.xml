@@ -49,6 +49,15 @@
         <activity android:name=".Activity.ActivityBlog"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".Activity.BlogSingle"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".Activity.InfoSingle"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".Activity.NewsSingle"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:windowSoftInputMode="stateHidden"></activity>
 
 
 
