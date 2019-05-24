@@ -16,7 +16,7 @@ import com.sketch.smartcan.R;
 import java.util.Locale;
 
 public class LoginActivity extends AppCompatActivity {
-    RelativeLayout rl_forget_pass;
+    RelativeLayout rl_forget_pass, rl_login;
     TextView tv_register,tv_title;
     ImageView img_back;
     Typeface typeface;
@@ -28,10 +28,21 @@ public class LoginActivity extends AppCompatActivity {
         typeface = Typeface.createFromAsset(am,
                 String.format(Locale.US, "fonts/%s", "Raleway-Bold.ttf"));
         rl_forget_pass=findViewById(R.id.rl_forget_pass);
+        rl_login=findViewById(R.id.rl_login);
         tv_register=findViewById(R.id.tv_register);
         img_back=findViewById(R.id.img_back);
         tv_title=findViewById(R.id.tv_title);
-         tv_title.setTypeface(typeface);
+        tv_title.setTypeface(typeface);
+
+
+
+
+        buttonOnClick();
+    }
+
+
+    private void buttonOnClick(){
+
         rl_forget_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,5 +61,18 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        rl_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(LoginActivity.this, Container.class);
+                startActivity(intent);
+
+            }
+        });
+
+
     }
 }

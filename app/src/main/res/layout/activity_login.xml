@@ -10,34 +10,37 @@
         android:layout_width="match_parent"
         android:background="@color/colorBlue"
         android:gravity="center_vertical"
-
         android:layout_height="?android:attr/actionBarSize">
-<ImageView
-    android:layout_width="40dp"
-    android:layout_height="30dp"
-    android:src="@mipmap/left_arrow"
 
-    android:id="@+id/img_back"
-    android:tint="@android:color/white"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/left_arrow"
+            android:id="@+id/img_back"
+            android:tint="@android:color/white"
+            android:padding="10dp"
+            />
+
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:layout_centerInParent="true"
             android:layout_marginTop="5dp"
             android:text="Login"
             android:id="@+id/tv_title"
             android:textSize="16dp"
             android:textColor="@android:color/white"/>
+
         <ImageView
             android:id="@+id/img_home"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:src="@mipmap/home"
-            android:layout_marginTop="5dp"
-            android:layout_marginRight="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
             android:tint="@android:color/white"
-            android:scaleType="fitEnd"
             />
     </RelativeLayout>
 
@@ -47,7 +50,7 @@
         android:layout_height="match_parent"
         android:layout_marginTop="180dp"
         android:background="@drawable/layout_background"
-android:layout_marginLeft="10dp"
+        android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="100dp"
 
@@ -55,8 +58,7 @@ android:layout_marginLeft="10dp"
         <LinearLayout android:id="@+id/menu_ll"
             android:layout_width="match_parent"
             android:orientation="vertical"
-           android:layout_gravity="center"
-
+            android:layout_gravity="center"
             android:layout_height="match_parent">
 
 
@@ -72,6 +74,7 @@ android:layout_marginLeft="10dp"
                     android:layout_height="30dp"
                     android:tint="@android:color/white"
                     android:src="@mipmap/avatar"/>
+
                 <EditText
                     android:id="@+id/edt_user_id"
                     android:hint="User Id"
@@ -122,6 +125,7 @@ android:layout_marginLeft="10dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:background="@mipmap/btn_orange">
+
                 <TextView
                     android:id="@+id/tv_login"
                     android:layout_width="wrap_content"
