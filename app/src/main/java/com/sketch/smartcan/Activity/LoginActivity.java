@@ -17,21 +17,47 @@ import com.sketch.smartcan.R;
 
 import java.util.Locale;
 
+import static com.android.volley.Request.Method.HEAD;
+
 public class LoginActivity extends AppCompatActivity {
-    RelativeLayout rl_forget_pass,rl_register_user;
+
+    RelativeLayout rl_forget_pass,rl_register_user,rl_login;
     TextView tv_register,tv_title,tv_login,tv_forget,tv_text_sign;
     ImageView img_back,img_home;
    EditText edt_user_id,edt_pass;
     Typeface typeface,typeface_bold,typeface_medium,typeface_light,typeface_regular;
 
 
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
             InitFont();
             initView();
             SetFont();
+
+
+
+        AssetManager am = getApplicationContext().getAssets();
+        typeface = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "Raleway-Bold.ttf"));
+        rl_forget_pass=findViewById(R.id.rl_forget_pass);
+
+        tv_register=findViewById(R.id.tv_register);
+        img_back=findViewById(R.id.img_back);
+        tv_title=findViewById(R.id.tv_title);
+        tv_title.setTypeface(typeface);
+
+
+
+
+        buttonOnClick();
+    }
+
+
+    private void buttonOnClick(){
 
 
         rl_forget_pass.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                 finish();
             }
         });
+
 
         img_home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,6 +120,7 @@ public class LoginActivity extends AppCompatActivity {
         edt_pass =findViewById(R.id.edt_pass);
         tv_forget =findViewById(R.id.tv_forget);
         img_back =findViewById(R.id.img_back);
+        rl_login =findViewById(R.id.rl_login);
 
       //  tv_title.setTypeface(typeface);
 
@@ -107,5 +135,19 @@ public class LoginActivity extends AppCompatActivity {
         edt_pass.setTypeface(typeface_regular);
         edt_user_id.setTypeface(typeface_regular);
         tv_forget.setTypeface(typeface_bold);
+
+
+        rl_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(LoginActivity.this, Container.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+
     }
 }

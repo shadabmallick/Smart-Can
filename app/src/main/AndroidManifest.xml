@@ -25,9 +25,11 @@
         </activity>
         <activity android:name=".MainActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"></activity>
+
         <activity android:name=".Activity.EnquiryActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="stateHidden"></activity>
+
         <activity android:name=".Activity.RegisterActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="stateHidden"></activity>
@@ -35,6 +37,7 @@
         <activity android:name=".Activity.LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="stateHidden"></activity>
+
         <activity android:name=".Activity.ForgetPassword"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="stateHidden"></activity>
@@ -46,6 +49,7 @@
         <activity android:name=".Activity.ActivityInfographic"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="stateHidden"></activity>
+
         <activity android:name=".Activity.ActivityBlog"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="stateHidden"></activity>
@@ -58,6 +62,15 @@
         <activity android:name=".Activity.NewsSingle"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
             android:windowSoftInputMode="stateHidden"></activity>
+
+
+
+        <activity android:name=".Activity.Container"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
+            android:windowSoftInputMode="stateHidden">
+
+        </activity>
+
 
 
 
