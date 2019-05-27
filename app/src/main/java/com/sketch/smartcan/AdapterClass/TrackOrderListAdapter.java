@@ -1,6 +1,7 @@
 package com.sketch.smartcan.AdapterClass;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -12,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.sketch.smartcan.Activity.OrderTrack;
 import com.sketch.smartcan.DataModel.DrawerItem;
 import com.sketch.smartcan.R;
 
@@ -79,6 +81,15 @@ public class TrackOrderListAdapter extends
         holder.tv_order_id.setTypeface(typeface);
 
 
+        holder.iv_track.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context, OrderTrack.class);
+                context.startActivity(intent);
+
+            }
+        });
 
     }
 

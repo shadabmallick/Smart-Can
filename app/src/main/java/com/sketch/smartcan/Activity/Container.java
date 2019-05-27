@@ -20,19 +20,23 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sketch.smartcan.AdapterClass.DrawerListAdapter;
 import com.sketch.smartcan.DataModel.DrawerItem;
 import com.sketch.smartcan.Fragments.HomePage;
+import com.sketch.smartcan.Fragments.Profile;
 import com.sketch.smartcan.R;
 import com.sketch.smartcan.Util.GlobalClass;
 import com.sketch.smartcan.Util.PrefManager;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import es.dmoral.toasty.Toasty;
 
 
@@ -41,6 +45,9 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
     DrawerLayout drawer;
     RecyclerView nav_drawer_recycler_view;
     TextView toolbar_title;
+    ImageView iv_add_complain;
+    CircleImageView iv_user;
+    RelativeLayout rel_profile;
 
     PrefManager prefManager;
     GlobalClass globalClass;
@@ -78,6 +85,7 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         toolbar_title = toolbar.findViewById(R.id.toolbar_title);
         toolbar_title.setText("Home");
 
+        iv_add_complain = findViewById(R.id.iv_add_complain);
 
 
         drawer = findViewById(R.id.drawer_layout);
@@ -102,6 +110,18 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
 
         initNavigationItems();
         footerItemClick();
+
+
+        rel_profile = findViewById(R.id.rel_profile);
+        rel_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                transactFragment(new Profile());
+
+                toolbar_title.setText("My Profile");
+            }
+        });
 
 
     }
@@ -149,7 +169,7 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
 
         DrawerItem drawerItem = new DrawerItem();
 
-        drawerItem.setImgResID(R.mipmap.new_order);
+        drawerItem.setImgResID(R.mipmap.home_orange);
         drawerItem.setTitle("Home");
         drawerItemArrayList.add(drawerItem);
 
@@ -163,7 +183,7 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         drawerItem = new DrawerItem();
 
         drawerItem.setImgResID(R.mipmap.user);
-        drawerItem.setTitle("Profile");
+        drawerItem.setTitle("My Profile");
         drawerItemArrayList.add(drawerItem);
 
 
@@ -225,7 +245,9 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
 
             case 2:
 
+                fragment = new Profile();
 
+                transactFragment(fragment);
 
                 break;
 
@@ -282,6 +304,8 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         }
 
         drawer.closeDrawer(GravityCompat.START);
+
+        iv_add_complain.setVisibility(View.GONE);
     }
 
 

@@ -1,17 +1,23 @@
 package com.sketch.smartcan.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.sketch.smartcan.Activity.OrderComplain;
 import com.sketch.smartcan.AdapterClass.TrackOrderListAdapter;
 import com.sketch.smartcan.R;
 
@@ -22,6 +28,7 @@ public class HomePage extends Fragment {
 
     RecyclerView recylerview_track_order;
     RecyclerView recylerview_complain;
+    ImageView iv_add_complain;
 
     Button btn_track_order, btn_complain;
     RelativeLayout rel_track_order, rel_complain;
@@ -35,7 +42,6 @@ public class HomePage extends Fragment {
        View view = inflater.inflate(R.layout.frag_home, container, false);;
 
         initViews(view);
-
 
         return view;
     }
@@ -56,7 +62,7 @@ public class HomePage extends Fragment {
         recylerview_track_order.setLayoutManager(new LinearLayoutManager(getActivity()));
         recylerview_complain.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-
+        iv_add_complain = getActivity().findViewById(R.id.iv_add_complain);
 
         btn_track_order = view.findViewById(R.id.btn_track_order);
         btn_complain = view.findViewById(R.id.btn_complain);
@@ -68,6 +74,7 @@ public class HomePage extends Fragment {
 
         setRecylerview_track_order();
     }
+
 
 
     public void buttonClick(){
@@ -85,6 +92,8 @@ public class HomePage extends Fragment {
                 rel_track_order.setVisibility(View.VISIBLE);
                 rel_complain.setVisibility(View.GONE);
 
+                iv_add_complain.setVisibility(View.GONE);
+
             }
         });
 
@@ -100,6 +109,19 @@ public class HomePage extends Fragment {
 
                 rel_track_order.setVisibility(View.GONE);
                 rel_complain.setVisibility(View.VISIBLE);
+
+                iv_add_complain.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+
+        iv_add_complain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getActivity(), OrderComplain.class);
+                startActivity(intent);
 
             }
         });

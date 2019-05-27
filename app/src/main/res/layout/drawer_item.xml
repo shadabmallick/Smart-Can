@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/menu_item_icon"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:tint="@color/colorOrange"
             android:src="@mipmap/new_order" />
 
