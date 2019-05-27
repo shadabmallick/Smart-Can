@@ -100,6 +100,7 @@ public class HomePage extends Fragment {
 
                 rel_track_order.setVisibility(View.GONE);
                 rel_complain.setVisibility(View.VISIBLE);
+                setRecylerview_Complain();
 
             }
         });
@@ -127,6 +128,24 @@ public class HomePage extends Fragment {
 
     }
 
+    public void setRecylerview_Complain(){
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.add("a");
+        arrayList.add("a");
+        arrayList.add("a");
+        arrayList.add("a");
+        arrayList.add("a");
+        arrayList.add("a");
+        arrayList.add("a");
+        arrayList.add("a");
+        arrayList.add("a");
+
+        TrackOrderListAdapter listAdapter = new TrackOrderListAdapter(getActivity(), arrayList);
+        recylerview_complain.setAdapter(listAdapter);
+
+
+    }
 
 
 

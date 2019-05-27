@@ -6,6 +6,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import com.sketch.smartcan.MainActivity;
 import com.sketch.smartcan.R;
 
+import java.util.EnumMap;
 import java.util.Locale;
 
 import static com.android.volley.Request.Method.HEAD;
@@ -126,7 +129,9 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-
+private static boolean emailValidate(String email){
+        return !TextUtils.isEmpty(email)&& android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+}
     public void SetFont(){
         tv_title.setTypeface(typeface);
         tv_login.setTypeface(typeface_bold);

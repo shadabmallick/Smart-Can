@@ -2,6 +2,8 @@ package com.sketch.smartcan.Activity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -27,7 +29,9 @@ import android.widget.Toast;
 
 import com.sketch.smartcan.AdapterClass.DrawerListAdapter;
 import com.sketch.smartcan.DataModel.DrawerItem;
+import com.sketch.smartcan.Fragments.FragOrderHistory;
 import com.sketch.smartcan.Fragments.HomePage;
+import com.sketch.smartcan.MainActivity;
 import com.sketch.smartcan.R;
 import com.sketch.smartcan.Util.GlobalClass;
 import com.sketch.smartcan.Util.PrefManager;
@@ -150,7 +154,7 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
 
         DrawerItem drawerItem = new DrawerItem();
 
-        drawerItem.setImgResID(R.mipmap.new_order);
+        drawerItem.setImgResID(R.mipmap.home_orange);
         drawerItem.setTitle("Home");
         drawerItemArrayList.add(drawerItem);
 
@@ -176,12 +180,12 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
 
         drawerItem = new DrawerItem();
 
-        drawerItem.setImgResID(R.mipmap.cart);
+        /*drawerItem.setImgResID(R.mipmap.cart);
         drawerItem.setTitle("Cart");
         drawerItemArrayList.add(drawerItem);
 
 
-        drawerItem = new DrawerItem();
+        drawerItem = new DrawerItem();*/
 
         drawerItem.setImgResID(R.mipmap.about);
         drawerItem.setTitle("About");
@@ -220,7 +224,8 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
 
             case 1:
 
-
+                  fragment =new FragOrderHistory();
+                  transactFragment(fragment);
 
                 break;
 
@@ -244,13 +249,13 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
 
             case 5:
 
-
+                dialogLogout();
 
                 break;
 
             case 6:
 
-                dialogLogout();
+
 
                 break;
 
@@ -296,6 +301,7 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         llnews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),NewsActivity.class));
 
 
             }
@@ -304,7 +310,7 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         llinfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getApplicationContext(),ActivityInfographic.class));
 
             }
         });
@@ -312,6 +318,7 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         llblog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), ActivityBlog.class));
 
 
             }
@@ -320,7 +327,7 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         llenquiry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getApplicationContext(),EnquiryActivity.class));
 
             }
         });
@@ -336,7 +343,7 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         builder.setPositiveButton("LOGOUT",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-
+                  startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
                     }
                 });
@@ -354,7 +361,6 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         alertDialog.show();
 
     }
-
 
 
 

@@ -6,6 +6,8 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -90,5 +92,8 @@ public class RegisterActivity extends AppCompatActivity {
         edt_phone.setTypeface(typeface_regular);
         tv_register.setTypeface(typeface_bold);
         tv_login.setTypeface(typeface_bold);
+    }
+    private static boolean isValidateEmail(String email){
+        return !TextUtils.isEmpty(email) && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
     }
 }
