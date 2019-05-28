@@ -26,7 +26,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 import com.sketch.smartcan.AdapterClass.ImageAdapter;
 import com.sketch.smartcan.R;
 import com.sketch.smartcan.Util.Constants;
@@ -46,7 +49,7 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
     EditText edt_order_id, edt_date, edt_complain;
     ImageView iv_back, iv_scan;
     Button btn_submit;
-    RelativeLayout rel_add_image;
+    RelativeLayout rel_add_image,rl_qr_code;
     RecyclerView recyler_images;
 
     ArrayList<File> listSelectedImages;
@@ -88,6 +91,7 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
 
         btn_submit = findViewById(R.id.btn_submit);
         rel_add_image = findViewById(R.id.rel_add_image);
+        rl_qr_code = findViewById(R.id.rl_qr_code);
 
         recyler_images = findViewById(R.id.recyler_images);
         recyler_images.setLayoutManager(new LinearLayoutManager(
@@ -136,7 +140,23 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
 
             }
         });
+        rl_qr_code.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                IntentIntegrator integrator = new IntentIntegrator(OrderComplain.this);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                integrator.setPrompt("");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(false);
+                integrator.setBarcodeImageEnabled(false);
+                integrator.initiateScan();
+                integrator.setOrientationLocked(false);
+
+
+
+            }
+        });
 
 
     }
@@ -238,6 +258,7 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+      //  IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
 
         p_image1 = null;
 
@@ -262,7 +283,10 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
         }else if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
 
             Bitmap photo = (Bitmap) data.getExtras().get("data");
+            Log.e("Scan", "Scanned");
 
+          //  edt_order_id.setText(result.getContents());
+           // Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
             Log.d(Constants.TAG , "CAMERA_REQUEST - "+data.getExtras().get("data"));
 
             File f = new File(Environment.getExternalStorageDirectory().toString());
@@ -307,7 +331,22 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
 
 
         }
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null) {
+            if(result.getContents() == null) {
+                Log.e("Scan*******", "Cancelled scan");
 
+            } else {
+                Log.e("Scan", "Scanned");
+
+                edt_order_id.setText(result.getContents());
+                Log.d(Constants.TAG, "onActivityResult: " +result);
+                Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+            }
+        } else {
+            // This is important, otherwise the result will not be passed to the fragment
+            super.onActivityResult(requestCode, resultCode, data);
+        }
 
         imageAdapter.notifyDataSetChanged();
     }

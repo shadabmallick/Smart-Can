@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import com.sketch.smartcan.AdapterClass.DrawerListAdapter;
 import com.sketch.smartcan.DataModel.DrawerItem;
+import com.sketch.smartcan.Fragments.AboutUs;
 import com.sketch.smartcan.Fragments.FragOrderHistory;
 import com.sketch.smartcan.Fragments.HomePage;
 
@@ -203,15 +204,9 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
 
         drawerItem = new DrawerItem();
 
-        /*drawerItem.setImgResID(R.mipmap.cart);
-        drawerItem.setTitle("Cart");
-        drawerItemArrayList.add(drawerItem);
-
-
-        drawerItem = new DrawerItem();*/
 
         drawerItem.setImgResID(R.mipmap.about);
-        drawerItem.setTitle("About");
+        drawerItem.setTitle("About Us");
         drawerItemArrayList.add(drawerItem);
 
 
@@ -263,12 +258,13 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
             case 3:
 
 
-
                 break;
 
             case 4:
 
 
+                fragment =new AboutUs();
+                transactFragment(fragment);
 
                 break;
 
@@ -278,11 +274,7 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
 
                 break;
 
-            case 6:
 
-
-
-                break;
 
 
         }

@@ -12,4 +12,6 @@
     <color name="status_green">#48AE23</color>
     <color name="status_blue">#3071EC</color>
     <color name="status_blue2">#3071EC</color>
+    <color name="QRCodeWhiteColor">#ffffff</color>
+    <color name="QRCodeBlackColor">#000000</color>
 </resources>
