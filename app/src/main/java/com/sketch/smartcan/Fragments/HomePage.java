@@ -1,6 +1,8 @@
 package com.sketch.smartcan.Fragments;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -18,10 +20,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.sketch.smartcan.Activity.OrderComplain;
+import com.sketch.smartcan.AdapterClass.TrackComplainListAdapter;
 import com.sketch.smartcan.AdapterClass.TrackOrderListAdapter;
 import com.sketch.smartcan.R;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class HomePage extends Fragment {
@@ -33,6 +37,7 @@ public class HomePage extends Fragment {
     Button btn_track_order, btn_complain;
     RelativeLayout rel_track_order, rel_complain;
 
+    Typeface typeface_bold, typeface_regular;
 
 
     @Nullable
@@ -68,6 +73,20 @@ public class HomePage extends Fragment {
         btn_complain = view.findViewById(R.id.btn_complain);
         rel_track_order = view.findViewById(R.id.rel_track_order);
         rel_complain = view.findViewById(R.id.rel_complain);
+
+
+        AssetManager am = getActivity().getAssets();
+        typeface_bold = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "Raleway-Bold.ttf"));
+
+        typeface_regular = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "Raleway-Regular.ttf"));
+
+        btn_track_order.setTypeface(typeface_bold);
+        btn_complain.setTypeface(typeface_bold);
+
+
+
 
 
         buttonClick();
@@ -109,6 +128,7 @@ public class HomePage extends Fragment {
 
                 rel_track_order.setVisibility(View.GONE);
                 rel_complain.setVisibility(View.VISIBLE);
+
                 setRecylerview_Complain();
 
                 iv_add_complain.setVisibility(View.VISIBLE);
@@ -163,7 +183,7 @@ public class HomePage extends Fragment {
         arrayList.add("a");
         arrayList.add("a");
 
-        TrackOrderListAdapter listAdapter = new TrackOrderListAdapter(getActivity(), arrayList);
+        TrackComplainListAdapter listAdapter = new TrackComplainListAdapter(getActivity(), arrayList);
         recylerview_complain.setAdapter(listAdapter);
 
 

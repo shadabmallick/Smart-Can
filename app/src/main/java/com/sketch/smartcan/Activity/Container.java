@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -35,6 +37,7 @@ import com.sketch.smartcan.Fragments.AboutUs;
 import com.sketch.smartcan.Fragments.FragOrderHistory;
 import com.sketch.smartcan.Fragments.HomePage;
 
+import com.sketch.smartcan.Fragments.Notification;
 import com.sketch.smartcan.MainActivity;
 
 import com.sketch.smartcan.Fragments.Profile;
@@ -44,6 +47,7 @@ import com.sketch.smartcan.Util.GlobalClass;
 import com.sketch.smartcan.Util.PrefManager;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 import es.dmoral.toasty.Toasty;
@@ -60,6 +64,8 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
 
     PrefManager prefManager;
     GlobalClass globalClass;
+
+    Typeface typeface_bold, typeface_regular;
 
 
     private static final long MOVE_DEFAULT_TIME = 1000;
@@ -87,12 +93,21 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
                     R.color.colorPrimaryDark));
         }
 
+        AssetManager am = getApplicationContext().getAssets();
+        typeface_bold = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "Raleway-Bold.ttf"));
+
+        typeface_regular = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "Raleway-Regular.ttf"));
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         //getSupportActionBar().setTitle("Home");
         toolbar_title = toolbar.findViewById(R.id.toolbar_title);
+        toolbar_title.setTypeface(typeface_bold);
         toolbar_title.setText("Home");
+
 
         iv_add_complain = findViewById(R.id.iv_add_complain);
 
@@ -202,6 +217,12 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         drawerItem.setTitle("Notification");
         drawerItemArrayList.add(drawerItem);
 
+
+        drawerItem = new DrawerItem();
+
+
+
+
         drawerItem = new DrawerItem();
 
 
@@ -257,6 +278,10 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
 
             case 3:
 
+                fragment = new Notification();
+
+      transactFragment(fragment);
+
 
                 break;
 
@@ -273,6 +298,8 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
                 dialogLogout();
 
                 break;
+
+
 
 
 
