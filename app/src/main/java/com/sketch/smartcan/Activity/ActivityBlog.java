@@ -15,8 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.sketch.smartcan.AdapterClass.AdapterBlog;
-import com.sketch.smartcan.AdapterClass.AdapterInfographic;
-import com.sketch.smartcan.AdapterClass.DataAdapter;
+
 import com.sketch.smartcan.AndroidVersion;
 import com.sketch.smartcan.MainActivity;
 import com.sketch.smartcan.R;
@@ -103,7 +102,7 @@ public class ActivityBlog extends AppCompatActivity {
         tv_info=findViewById(R.id.tv_enq_info);
         tv_blog=findViewById(R.id.tv_enq_blog);
         llinfo=findViewById(R.id.llinfo);
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyler_view_news);
+        RecyclerView recyclerView = findViewById(R.id.recyler_view_news);
         //recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);

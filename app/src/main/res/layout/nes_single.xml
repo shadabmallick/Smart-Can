@@ -28,7 +28,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="60dp"
             android:layout_marginLeft="60dp"
-            android:text="Blog"
+            android:text="News"
             android:textSize="16dp"
             android:textColor="@android:color/white"/>
 
@@ -38,7 +38,7 @@
             android:layout_height="20dp"
 
             android:layout_alignParentRight="true"
-            android:src="@mipmap/home_orange"
+            android:src="@mipmap/home"
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
             android:tint="@android:color/white"
@@ -50,11 +50,11 @@
         android:id="@+id/img_blog_single"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:src="@mipmap/blog_map"
+        android:src="@mipmap/news_bg"
         android:scaleType="fitXY"
         android:layout_margin="20dp"
-       android:layout_below="@+id/rl_main"
-       />
+        android:layout_below="@+id/rl_main"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -72,6 +72,7 @@
         android:id="@+id/tv_title_single"
         android:text="@string/text_single"
         android:textSize="14dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"
         android:textColor="@android:color/black"
         android:layout_below="@+id/tv_date"/>
@@ -81,6 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/tv_title_brief"
+        android:layout_marginTop="10dp"
         android:text="@string/text"
         android:textSize="14dp"
         android:layout_marginLeft="20dp"

@@ -28,7 +28,7 @@
             android:layout_marginTop="5dp"
             android:layout_marginRight="60dp"
             android:layout_marginLeft="60dp"
-            android:text="Blog"
+            android:text="Infographic"
             android:textSize="16dp"
             android:textColor="@android:color/white"/>
 
@@ -38,7 +38,7 @@
             android:layout_height="20dp"
 
             android:layout_alignParentRight="true"
-            android:src="@mipmap/home_orange"
+            android:src="@mipmap/home"
             android:layout_marginRight="20dp"
             android:layout_marginTop="5dp"
             android:tint="@android:color/white"
@@ -50,11 +50,11 @@
         android:id="@+id/img_blog_single"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:src="@mipmap/blog_map"
+        android:src="@mipmap/info_bc"
         android:scaleType="fitXY"
         android:layout_margin="20dp"
-       android:layout_below="@+id/rl_main"
-       />
+        android:layout_below="@+id/rl_main"
+        />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

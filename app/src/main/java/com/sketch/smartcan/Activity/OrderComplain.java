@@ -26,6 +26,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sketch.smartcan.AdapterClass.ImageAdapter;
 import com.sketch.smartcan.R;
@@ -39,6 +40,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import es.dmoral.toasty.Toasty;
 
 public class OrderComplain extends Activity implements ImageAdapter.onItemClickListner {
 
@@ -59,6 +62,8 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
     public static final int REQUEST_CODE_ASK_MULTIPLE_PERMISSIONS = 1;
 
 
+    Typeface typeface_bold, typeface_regular;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +78,12 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
         Typeface typeface = Typeface.createFromAsset(am,
                 String.format(Locale.US, "fonts/%s", "Raleway-Medium.ttf"));
 
+        typeface_bold = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "Raleway-Bold.ttf"));
+
+        typeface_regular = Typeface.createFromAsset(am,
+                String.format(Locale.US, "fonts/%s", "Raleway-Regular.ttf"));
+
 
         toolbar_title = findViewById(R.id.toolbar_title);
         iv_back = findViewById(R.id.iv_back);
@@ -84,6 +95,8 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
         edt_date = findViewById(R.id.edt_date);
         edt_complain = findViewById(R.id.edt_complain);
 
+
+
         iv_scan = findViewById(R.id.iv_scan);
 
         btn_submit = findViewById(R.id.btn_submit);
@@ -93,13 +106,21 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
         recyler_images.setLayoutManager(new LinearLayoutManager(
                 this, LinearLayoutManager.HORIZONTAL, false));
 
-        //tv_order_id.setTypeface(typeface);
+
 
         toolbar_title.setText("Complain");
 
         listSelectedImages = new ArrayList<>();
         imageAdapter = new ImageAdapter(this, listSelectedImages, this);
         recyler_images.setAdapter(imageAdapter);
+
+
+
+
+        edt_complain.setTypeface(typeface_regular);
+        btn_submit.setTypeface(typeface_bold);
+        tv_btn1.setTypeface(typeface_bold);
+
 
 
 
@@ -122,7 +143,17 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
             @Override
             public void onClick(View v) {
 
-                if (checkPermission());
+                if (listSelectedImages.size() >= 2){
+
+                    Toasty.info(OrderComplain.this,
+                            "You have already selected 2 images.",
+                            Toast.LENGTH_SHORT, true).show();
+
+                }else {
+
+                    if (checkPermission());
+
+                }
 
             }
         });
@@ -257,7 +288,10 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
                 e.printStackTrace();
             }
 
-            listSelectedImages.add(p_image1);
+            if (p_image1 != null){
+                listSelectedImages.add(p_image1);
+            }
+
 
         }else if (requestCode == CAMERA_REQUEST && resultCode == Activity.RESULT_OK) {
 

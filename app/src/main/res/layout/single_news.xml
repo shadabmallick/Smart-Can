@@ -39,8 +39,9 @@
             <TextView
                 android:layout_below="@+id/tv_brief"
                 android:layout_width="wrap_content"
-
-                android:textColor="@color/colorOrange"
+                 android:id="@+id/date"
+                android:layout_marginTop="10dp"
+                android:textColor="@android:color/darker_gray"
                 android:text="22/05/2019"
                 android:layout_height="wrap_content" />
 

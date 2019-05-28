@@ -20,10 +20,13 @@
             android:id="@+id/img_back"
             android:tint="@android:color/white"/>
         <TextView
+            android:id="@+id/tv_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="5dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="60dp"
             android:text="Registration"
             android:textSize="16dp"
             android:textColor="@android:color/white"/>
@@ -48,7 +51,7 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:background="@drawable/layout_background"
-        android:layout_marginBottom="70dp">
+        android:layout_marginBottom="50dp">
         <LinearLayout android:id="@+id/menu_ll"
             android:layout_width="fill_parent"
             android:orientation="vertical"
@@ -137,6 +140,7 @@
                     android:tint="@android:color/white"
                     android:src="@mipmap/avatar"/>
                 <EditText
+                    android:id="@+id/edt_agent_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
@@ -160,12 +164,16 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:background="@mipmap/btn_orange">
+
                 <TextView
+                    android:id="@+id/tv_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
+
                     android:text="Register"
-                    android:textSize="16dp"
-                    android:textColor="@android:color/white"/>
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp" />
 
 
             </RelativeLayout>
@@ -176,13 +184,16 @@
                 android:gravity="center"
                 android:layout_marginTop="10dp"
                 android:layout_below="@+id/rl_submit">
+
                 <TextView
                     android:id="@+id/tv_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp"
                     android:text="Login"
                     android:textColor="@android:color/white"
-                    android:textSize="16dp"/>
+                    android:textSize="16dp" />
 
 
             </RelativeLayout>
