@@ -12,4 +12,18 @@
     <string name="nav_header_desc">Navigation header</string>
 
 
+
+    <string name="order_status_msg1">Order Place</string>
+    <string name="order_status_msg2">We have received your order.</string>
+    <string name="order_status_msg3">Order Process</string>
+    <string name="order_status_msg4">Your order has been confirmed.</string>
+    <string name="order_status_msg5">Order Packed</string>
+    <string name="order_status_msg6">Ready to dispatch.</string>
+    <string name="order_status_msg7">Order Shipped</string>
+    <string name="order_status_msg8">Material loaded for shipping.</string>
+    <string name="order_status_msg9">Reached Final Destination</string>
+    <string name="order_status_msg10">Material reached final destination.</string>
+
+
+
 </resources>
