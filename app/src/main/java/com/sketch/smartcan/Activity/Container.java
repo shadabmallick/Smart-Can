@@ -133,7 +133,6 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         transactFragment(new HomePage());
 
         initNavigationItems();
-        footerItemClick();
 
 
         rel_profile = findViewById(R.id.rel_profile);
@@ -337,48 +336,7 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
     }
 
 
-    public void footerItemClick(){
 
-        LinearLayout llnews = findViewById(R.id.llnews);
-        LinearLayout llinfo = findViewById(R.id.llinfo);
-        LinearLayout llblog = findViewById(R.id.llblog);
-        LinearLayout llenquiry = findViewById(R.id.llenquiry);
-
-        llnews.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),NewsActivity.class));
-
-
-            }
-        });
-
-        llinfo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),ActivityInfographic.class));
-
-            }
-        });
-
-        llblog.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), ActivityBlog.class));
-
-
-            }
-        });
-
-        llenquiry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),EnquiryActivity.class));
-
-            }
-        });
-
-    }
 
 
     public void dialogLogout(){

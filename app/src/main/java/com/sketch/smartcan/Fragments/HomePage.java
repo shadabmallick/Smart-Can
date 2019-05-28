@@ -19,6 +19,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.sketch.smartcan.Activity.ActivityBlog;
+import com.sketch.smartcan.Activity.ActivityInfographic;
+import com.sketch.smartcan.Activity.EnquiryActivity;
+import com.sketch.smartcan.Activity.NewsActivity;
 import com.sketch.smartcan.Activity.OrderComplain;
 import com.sketch.smartcan.AdapterClass.TrackComplainListAdapter;
 import com.sketch.smartcan.AdapterClass.TrackOrderListAdapter;
@@ -47,6 +51,8 @@ public class HomePage extends Fragment {
        View view = inflater.inflate(R.layout.frag_home, container, false);;
 
         initViews(view);
+
+        footerItemClick(view);
 
         return view;
     }
@@ -143,6 +149,50 @@ public class HomePage extends Fragment {
 
                 Intent intent = new Intent(getActivity(), OrderComplain.class);
                 startActivity(intent);
+
+            }
+        });
+
+    }
+
+
+    public void footerItemClick(View view){
+
+        LinearLayout llnews = view.findViewById(R.id.llnews);
+        LinearLayout llinfo = view.findViewById(R.id.llinfo);
+        LinearLayout llblog = view.findViewById(R.id.llblog);
+        LinearLayout llenquiry = view.findViewById(R.id.llenquiry);
+
+        llnews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), NewsActivity.class));
+
+
+            }
+        });
+
+        llinfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ActivityInfographic.class));
+
+            }
+        });
+
+        llblog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), ActivityBlog.class));
+
+
+            }
+        });
+
+        llenquiry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getActivity(), EnquiryActivity.class));
 
             }
         });
