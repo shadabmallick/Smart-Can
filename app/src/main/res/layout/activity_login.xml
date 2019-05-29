@@ -7,6 +7,7 @@
     tools:context=".MainActivity"
     android:background="@android:color/white">
     <RelativeLayout
+        android:id="@+id/rl_main"
         android:layout_width="match_parent"
         android:background="@color/colorBlue"
         android:gravity="center_vertical"
@@ -48,21 +49,17 @@
     </RelativeLayout>
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="180dp"
-        android:background="@drawable/layout_background"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="100dp"
 
-        >
         <LinearLayout android:id="@+id/menu_ll"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:layout_height="match_parent">
+            android:layout_marginTop="50dp"
+            android:background="@drawable/layout_background"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_below="@+id/rl_main"
+            android:layout_height="wrap_content">
 
 
 
@@ -81,7 +78,8 @@
                 <EditText
                     android:id="@+id/edt_user_id"
                     android:hint="User Id"
-
+                    android:singleLine="true"
+                    android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:backgroundTint="@android:color/holo_blue_light"
                     android:layout_width="match_parent"
@@ -106,6 +104,7 @@
                     android:id="@+id/edt_pass"
                     android:layout_width="match_parent"
                     android:hint="password"
+                    android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:backgroundTint="@android:color/holo_blue_light"
                     android:inputType="textPassword"
@@ -186,6 +185,6 @@
 
 
         </LinearLayout>
-    </ScrollView>
+
 
 </RelativeLayout>

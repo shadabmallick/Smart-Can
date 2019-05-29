@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.sketch.smartcan.Activity.ComplainDetails;
 import com.sketch.smartcan.Activity.OrderTrack;
 import com.sketch.smartcan.R;
 
@@ -45,6 +46,14 @@ public class TrackComplainListAdapter extends
             tv_do_id = itemView.findViewById(R.id.tv_do_id);
 
             this.listner = listner;
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent sinlgeComplain=new Intent(context, ComplainDetails.class);
+                    context.startActivity(sinlgeComplain);
+
+                }
+            });
         }
     }
 

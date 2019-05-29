@@ -7,6 +7,7 @@
     tools:context=".MainActivity"
     android:background="@android:color/white">
     <RelativeLayout
+        android:id="@+id/rl_main"
         android:layout_width="match_parent"
         android:background="@color/colorBlue"
         android:gravity="center_vertical"
@@ -44,18 +45,18 @@
     </RelativeLayout>
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/layout_background"
-        android:layout_marginBottom="50dp">
+
         <LinearLayout android:id="@+id/menu_ll"
             android:layout_width="fill_parent"
             android:orientation="vertical"
-            android:layout_height="fill_parent">
+            android:background="@drawable/layout_background"
+            android:layout_marginRight="10dp"
+            android:padding="20dp"
+            android:layout_marginLeft="10dp"
+
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/rl_main"
+            android:layout_height="wrap_content">
 
 
 
@@ -73,6 +74,8 @@
                 <EditText
                     android:id="@+id/edt_name"
                     android:hint="Name"
+                    android:singleLine="true"
+                    android:textColor="@android:color/white"
                     android:backgroundTint="@android:color/holo_blue_light"
                     android:textColorHint="@android:color/white"
                     android:layout_width="match_parent"
@@ -99,6 +102,8 @@
                     android:layout_width="match_parent"
                     android:backgroundTint="@android:color/holo_blue_light"
                     android:hint="Email Id"
+                    android:singleLine="true"
+                    android:textColor="@android:color/white"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"/>
 
@@ -122,6 +127,8 @@
                     android:backgroundTint="@android:color/holo_blue_light"
                     android:textColorHint="@android:color/white"
                     android:hint="Phone Number"
+                    android:singleLine="true"
+                    android:textColor="@android:color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"/>
@@ -143,11 +150,12 @@
                     android:id="@+id/edt_agent_id"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                     android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:backgroundTint="@android:color/holo_blue_light"
                     android:gravity="start"
                     android:padding="10dp"
+                    android:singleLine="true"
                     android:hint="Agent Id"
                     android:layout_marginLeft="20dp"/>
 
@@ -200,6 +208,6 @@
 
 
         </LinearLayout>
-    </ScrollView>
+
 
 </RelativeLayout>

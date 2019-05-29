@@ -73,7 +73,7 @@
                         android:drawableLeft="@mipmap/new_order24"
                         android:drawableTint="@color/colorOrange"
                         android:drawablePadding="5dp"
-                        android:text="Order Id:"
+                        android:text="Do Id:"
                         />
 
                     <TextView
@@ -83,7 +83,7 @@
                         android:textColor="@color/white"
                         android:layout_toRightOf="@+id/tv2"
                         android:paddingLeft="10dp"
-                        android:text="1234469"
+                        android:text="028/TEX"
                         />
 
                 </RelativeLayout>
@@ -99,10 +99,10 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/white"
-                        android:drawableLeft="@mipmap/new_order24"
+                        android:drawableLeft="@mipmap/track"
                         android:drawableTint="@color/colorOrange"
                         android:drawablePadding="5dp"
-                        android:text="Date:"
+                        android:text="Status:"
                         />
 
                     <TextView
@@ -112,7 +112,7 @@
                         android:textColor="@color/white"
                         android:layout_toRightOf="@+id/tv3"
                         android:paddingLeft="10dp"
-                        android:text="123ABC"
+                        android:text="Order Packed"
                         />
 
                 </RelativeLayout>

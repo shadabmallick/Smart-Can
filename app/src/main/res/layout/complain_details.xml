@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        layout="@layout/toolbar"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp"
+                android:background="@drawable/border_red"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="7dp"
+                        android:tint="@android:color/white"
+                        android:src="@mipmap/order_id_orange"
+                        android:background="@drawable/circle_orange"/>
+
+                    <TextView
+                        android:id="@+id/tv1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:layout_marginLeft="10dp"
+                        android:text="Order Id:"
+                        />
+
+                    <TextView
+                        android:id="@+id/edt_order_id"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="028/TEX"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="7dp"
+                        android:tint="@android:color/white"
+                        android:src="@mipmap/calander_orange"
+                        android:background="@drawable/circle_orange"/>
+
+
+                    <TextView
+                        android:id="@+id/complain_id"
+                        android:layout_width="match_parent"
+                        android:layout_marginLeft="10dp"
+
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:text="Complain Id:"
+                        />
+
+                    <TextView
+                        android:id="@+id/complain_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="C_028/TEX"
+                        />
+
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    >
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:padding="7dp"
+
+                        android:tint="@android:color/white"
+                        android:src="@mipmap/complain_w"
+                        android:background="@drawable/circle_orange"/>
+
+                    <TextView
+                        android:id="@+id/tv2"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1.3"
+                        android:text="Date:"
+                        />
+
+                    <TextView
+                        android:id="@+id/edt_date"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:hint="22/11/2018"
+                        />
+
+
+
+
+                </LinearLayout>
+
+
+
+                <EditText
+                    android:id="@+id/edt_complain"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/border_gray"
+                    android:layout_margin="10dp"
+                    android:minHeight="150dp"
+                    android:gravity="start"
+                    android:padding="10dp"
+                    android:hint="Write here your complain"
+                    />
+                <TextView
+                    android:id="@+id/tv_picture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                   android:layout_marginLeft="10dp"
+                    android:text="Pictures"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+
+                    android:layout_margin="10dp">
+
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/news_bg"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_border"/>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/news_bg"
+                        android:layout_margin="10dp"
+                        android:background="@drawable/edittext_border"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+            <EditText
+                android:id="@+id/edt_reply"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_red"
+                android:layout_margin="10dp"
+                android:minHeight="150dp"
+                android:gravity="start"
+                android:padding="10dp"
+                android:hint="Reply"
+                />
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+</LinearLayout>

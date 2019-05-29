@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:background="@color/colorBlue"
         android:gravity="center_vertical"
-
+        android:id="@+id/rl_main"
         android:layout_height="?android:attr/actionBarSize">
         <ImageView
             android:layout_width="40dp"
@@ -47,22 +47,17 @@
             android:scaleType="fitEnd"
             />
     </RelativeLayout>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="120dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/layout_background"
 
-
-        >
         <LinearLayout android:id="@+id/menu_ll"
             android:layout_width="match_parent"
             android:orientation="vertical"
             android:layout_gravity="center"
-            android:layout_height="match_parent">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="50dp"
+            android:layout_below="@+id/rl_main"
+            android:background="@drawable/layout_background"
+            android:layout_height="wrap_content">
 
 
 
@@ -80,6 +75,8 @@
                 <EditText
                     android:id="@+id/edt_user_id"
                     android:hint="User Id"
+
+                    android:textColor="@android:color/white"
                     android:textColorHint="@android:color/white"
                     android:layout_width="match_parent"
                     android:backgroundTint="@android:color/holo_blue_light"
@@ -133,6 +130,5 @@
 
 
         </LinearLayout>
-    </ScrollView>
 
 </RelativeLayout>
