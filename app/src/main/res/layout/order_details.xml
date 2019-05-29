@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <include
+        android:id="@+id/layput"
+        layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_main"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/layput"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:background="@drawable/top_button">
+        <TextView
+            android:id="@+id/sr_no"
+            android:layout_width="wrap_content"
+            android:text="SL"
+            android:textSize="16dp"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"/>
+        <TextView
+            android:id="@+id/desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DESCRIPTION"
+            android:textSize="16dp"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:layout_centerInParent="true"/>
+        <TextView
+            android:id="@+id/dismiss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QTY"
+            android:textSize="16dp"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            android:layout_alignParentRight="true"/>
+
+
+    </RelativeLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycle_order_details"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl_main"></android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

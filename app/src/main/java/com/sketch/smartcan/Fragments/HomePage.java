@@ -24,6 +24,7 @@ import com.sketch.smartcan.Activity.ActivityInfographic;
 import com.sketch.smartcan.Activity.EnquiryActivity;
 import com.sketch.smartcan.Activity.NewsActivity;
 import com.sketch.smartcan.Activity.OrderComplain;
+import com.sketch.smartcan.AdapterClass.TrackComplainListAdapter;
 import com.sketch.smartcan.AdapterClass.TrackOrderListAdapter;
 import com.sketch.smartcan.R;
 
@@ -232,7 +233,7 @@ public class HomePage extends Fragment {
         arrayList.add("a");
         arrayList.add("a");
 
-        TrackOrderListAdapter listAdapter = new TrackOrderListAdapter(getActivity(), arrayList);
+        TrackComplainListAdapter listAdapter = new TrackComplainListAdapter(getActivity(), arrayList);
         recylerview_complain.setAdapter(listAdapter);
 
 
