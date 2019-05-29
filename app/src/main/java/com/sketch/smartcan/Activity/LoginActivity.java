@@ -121,7 +121,6 @@ public class LoginActivity extends AppCompatActivity {
 
                     password_visible = false;
 
-
                 }
 
                 edt_pass.setSelection(edt_pass.length());
