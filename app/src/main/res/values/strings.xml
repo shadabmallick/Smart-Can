@@ -12,6 +12,16 @@
     <string name="nav_header_desc">Navigation header</string>
 
 
+    <string name="name_empty">Name is empty</string>
+    <string name="mail_empty">Mail Id is empty</string>
+    <string name="invalid_email">Mail Id is invalid</string>
+    <string name="phone_empty">Phone is empty</string>
+    <string name="agent_empty">Agent Id is empty</string>
+
+
+    <string name="loading">Loading</string>
+
+
 
     <string name="order_status_msg1">Order Place</string>
     <string name="order_status_msg2">We have received your order.</string>
