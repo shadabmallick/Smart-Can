@@ -54,7 +54,7 @@ import es.dmoral.toasty.Toasty;
 
 public class OrderComplain extends Activity implements ImageAdapter.onItemClickListner {
 
-    TextView toolbar_title, tv1, tv2, tv_btn1;
+    TextView toolbar_title, tv1, tv2, tv_btn1, tv_title1;
     EditText edt_order_id, edt_date, edt_complain;
     ImageView iv_back, iv_scan,img_date;
     Button btn_submit;
@@ -109,6 +109,7 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
         tv1 = findViewById(R.id.tv1);
         tv2 = findViewById(R.id.tv2);
         tv_btn1 = findViewById(R.id.tv_btn1);
+        tv_title1 = findViewById(R.id.tv_title1);
 
         edt_order_id = findViewById(R.id.edt_order_id);
         edt_date = findViewById(R.id.edt_date);
@@ -135,11 +136,15 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
         recyler_images.setAdapter(imageAdapter);
 
 
-
-
         edt_complain.setTypeface(typeface_regular);
         btn_submit.setTypeface(typeface_bold);
         tv_btn1.setTypeface(typeface_bold);
+        tv_title1.setTypeface(typeface_bold);
+        tv1.setTypeface(typeface_regular);
+        tv2.setTypeface(typeface_regular);
+        edt_date.setTypeface(typeface_regular);
+        edt_complain.setTypeface(typeface_regular);
+        edt_order_id.setTypeface(typeface_regular);
 
 
 
