@@ -4,6 +4,7 @@ package com.sketch.smartcan.Activity;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
@@ -25,6 +26,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -42,7 +44,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
@@ -52,14 +56,16 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
 
     TextView toolbar_title, tv1, tv2, tv_btn1;
     EditText edt_order_id, edt_date, edt_complain;
-    ImageView iv_back, iv_scan;
+    ImageView iv_back, iv_scan,img_date;
     Button btn_submit;
     RelativeLayout rel_add_image,rl_qr_code;
     RecyclerView recyler_images;
+    private int mYear, mMonth, mDay, mHour, mMinute,mSecond;
+    Calendar myCalendar = Calendar.getInstance();
 
     ArrayList<File> listSelectedImages;
     ImageAdapter imageAdapter;
-
+    String exam_date;
     File p_image1;
 
     private int PICK_IMAGE_REQUEST = 1;
@@ -98,6 +104,7 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
 
 
         toolbar_title = findViewById(R.id.toolbar_title);
+        img_date = findViewById(R.id.img_date);
         iv_back = findViewById(R.id.iv_back);
         tv1 = findViewById(R.id.tv1);
         tv2 = findViewById(R.id.tv2);
@@ -140,6 +147,23 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
         buttonOnclick();
 
     }
+    public DatePickerDialog.OnDateSetListener datePickerListener =
+            new DatePickerDialog.OnDateSetListener() {
+
+                public void onDateSet(DatePicker view, int selectedYear,
+                                      int selectedMonth, int selectedDay) {
+                    myCalendar.set(Calendar.YEAR, selectedYear);
+                    myCalendar.set(Calendar.MONTH, selectedMonth);
+                    myCalendar.set(Calendar.DAY_OF_MONTH, selectedDay);
+                    String myFormat = "MMM dd, yyyy";
+                    SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.US);
+                    SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+                    exam_date = sdf1.format(myCalendar.getTime());
+                   // String date_to_show = sdf.format(myCalendar.getTime());
+                    edt_date.setText(exam_date);
+
+                }
+            };
 
     public void buttonOnclick(){
 
@@ -151,6 +175,23 @@ public class OrderComplain extends Activity implements ImageAdapter.onItemClickL
                 finish();
             }
         });
+        img_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                final Calendar c = Calendar.getInstance();
+                mYear = c.get(Calendar.YEAR);
+                mMonth = c.get(Calendar.MONTH);
+                mDay = c.get(Calendar.DAY_OF_MONTH);
+
+                new DatePickerDialog(OrderComplain.this, datePickerListener, mYear, mMonth, mDay).show();
+
+
+            }
+
+
+        });
+
 
         rel_add_image.setOnClickListener(new View.OnClickListener() {
             @Override

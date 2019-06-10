@@ -6,17 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:background="@android:color/white">
-    <include layout="@layout/action_bar" />
+    <include layout="@layout/action_bar"
+        android:id="@+id/top"/>
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="130dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/top"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:scrollbars="none"
+        android:layout_marginBottom="90dp"
         android:background="@drawable/layout_background"
-        android:layout_marginBottom="90dp">
+        >
         <LinearLayout android:id="@+id/menu_ll"
             android:layout_width="fill_parent"
             android:orientation="vertical"
@@ -38,6 +42,8 @@
                 <EditText
                     android:id="@+id/edt_name"
                     android:hint="Name"
+                    android:singleLine="true"
+                    android:textColor="@android:color/white"
                     android:backgroundTint="@android:color/holo_blue_light"
                     android:textColorHint="@android:color/white"
                     android:layout_width="match_parent"
@@ -62,8 +68,9 @@
                 <EditText
                     android:id="@+id/edt_company"
                     android:hint="Company"
+                    android:singleLine="true"
                     android:backgroundTint="@android:color/holo_blue_light"
-
+                    android:textColor="@android:color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColorHint="@android:color/white"
@@ -89,9 +96,10 @@
                     android:id="@+id/edt_location"
                     android:layout_width="match_parent"
                     android:backgroundTint="@android:color/holo_blue_light"
-
+                     android:textColor="@android:color/white"
                     android:layout_height="wrap_content"
                     android:hint="Location"
+                    android:singleLine="true"
                     android:textColorHint="@android:color/white"
 
                     android:layout_marginLeft="20dp"/>
@@ -115,9 +123,11 @@
                     android:id="@+id/edt_mail"
                     android:layout_width="match_parent"
                     android:hint="Email Id"
+                    android:inputType="textEmailAddress"
+                    android:singleLine="true"
                     android:textColorHint="@android:color/white"
                     android:backgroundTint="@android:color/holo_blue_light"
-
+                    android:textColor="@android:color/white"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"/>
 
@@ -140,11 +150,13 @@
                 <EditText
                     android:id="@+id/edt_phone"
                     android:hint="Phone Number"
+                    android:singleLine="true"
+                     android:inputType="phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColorHint="@android:color/white"
                     android:backgroundTint="@android:color/holo_blue_light"
-
+                        android:textColor="@android:color/white"
                     android:layout_marginLeft="20dp"/>
 
 
@@ -169,7 +181,7 @@
                     android:gravity="start"
                     android:id="@+id/edt_message"
                     android:textColorHint="@android:color/white"
-
+                     android:textColor="@android:color/white"
                     android:padding="10dp"
                     android:hint="Type your mesage"
                     android:layout_marginLeft="20dp"/>

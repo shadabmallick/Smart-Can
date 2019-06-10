@@ -53,7 +53,8 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import es.dmoral.toasty.Toasty;
 
 
-public class Container extends AppCompatActivity implements DrawerListAdapter.onItemClickListner {
+public class Container extends AppCompatActivity
+        implements DrawerListAdapter.onItemClickListner {
 
     DrawerLayout drawer;
     RecyclerView nav_drawer_recycler_view;
@@ -224,9 +225,6 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
         drawerItemArrayList.add(drawerItem);
 
 
-        drawerItem = new DrawerItem();
-
-
 
 
         drawerItem = new DrawerItem();
@@ -304,9 +302,6 @@ public class Container extends AppCompatActivity implements DrawerListAdapter.on
                 dialogLogout();
 
                 break;
-
-
-
 
 
 

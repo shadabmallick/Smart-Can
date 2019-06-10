@@ -1,5 +1,6 @@
 package com.sketch.smartcan.Activity;
 
+import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -32,6 +33,7 @@ public class ForgetPassword  extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(),
                     R.color.colorBlue));
+
         }
 
         AssetManager am = getApplicationContext().getAssets();
@@ -40,6 +42,13 @@ public class ForgetPassword  extends AppCompatActivity {
         tv_title=findViewById(R.id.tv_title);
         user_id=findViewById(R.id.edt_user_id);
        // tv_forget=findViewById(R.id.tv_login);
+
+        tv_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),LoginActivity.class));
+            }
+        });
        // tv_new=findViewById(R.id.tv_new);
         tv_register=findViewById(R.id.tv_register);
         typeface_bold = Typeface.createFromAsset(am,

@@ -55,6 +55,8 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="50dp"
+            android:paddingTop="50dp"
+            android:paddingBottom="50dp"
             android:layout_below="@+id/rl_main"
             android:background="@drawable/layout_background"
             android:layout_height="wrap_content">
@@ -107,22 +109,24 @@
 
 
             </RelativeLayout>
+
             <RelativeLayout
                 android:id="@+id/rl_new_user"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_below="@+id/rl_submit">
+                android:layout_below="@+id/rl_submit"
+                android:layout_marginTop="20dp"
+                android:gravity="center">
+
                 <TextView
                     android:id="@+id/tv_register"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Login"
-                    android:textColor="@android:color/white"
                     android:layout_marginLeft="10dp"
                     android:layout_toRightOf="@+id/tv_new"
-                    android:textSize="16dp"/>
+                    android:text="Login"
+                    android:textColor="@android:color/white"
+                    android:textSize="16dp" />
 
 
             </RelativeLayout>

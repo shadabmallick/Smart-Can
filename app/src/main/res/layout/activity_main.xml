@@ -5,29 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:background="@mipmap/splash_bg">
-    <LinearLayout
+    >
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="right"
-        android:layout_marginTop="50dp"
+        android:layout_above="@+id/linear_login"
+        android:paddingBottom="20dp"
+        >
 
-      >
+        <ImageView
+            android:id="@+id/img1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/strip"
+            android:scaleType="fitStart"
+            />
+
 
         <ImageView
             android:id="@+id/img2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/jumac_logo"
+            android:layout_marginTop="50dp"
+            android:layout_alignParentRight="true"
             />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
+        android:id="@+id/linear_login"
         android:layout_width="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="120dp"
+        android:layout_above="@+id/footer"
         android:orientation="vertical"
         android:layout_height="wrap_content">
 
@@ -56,6 +66,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_marginTop="10dp"
+            android:padding="10dp"
             android:layout_below="@+id/rl_login">
             <TextView
                 android:id="@+id/tv_registration"

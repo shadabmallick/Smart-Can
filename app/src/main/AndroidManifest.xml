@@ -40,25 +40,25 @@
         <activity android:name=".Activity.EnquiryActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
 
-            android:windowSoftInputMode="stateVisible|adjustResize|stateHidden">
+            android:windowSoftInputMode="adjustPan|stateHidden">
 
         </activity>
 
         <activity android:name=".Activity.RegisterActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
-            android:windowSoftInputMode="stateVisible|adjustResize|stateHidden">
+            android:windowSoftInputMode="adjustPan|stateHidden">
 
         </activity>
 
         <activity android:name=".Activity.LoginActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
-            android:windowSoftInputMode="stateVisible|adjustResize|stateHidden">
+            android:windowSoftInputMode="adjustPan|stateHidden">
 
         </activity>
 
         <activity android:name=".Activity.ForgetPassword"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar.FullScreen"
-            android:windowSoftInputMode="stateVisible|adjustResize|stateHidden">
+            android:windowSoftInputMode="stateVisible|adjustPan|stateHidden">
 
         </activity>
 

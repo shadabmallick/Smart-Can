@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
@@ -33,11 +34,12 @@ public class LoginActivity extends AppCompatActivity {
 
     RelativeLayout rl_forget_pass,rl_register_user,rl_login;
     TextView tv_register,tv_title,tv_login,tv_forget,tv_text_sign;
-    ImageView img_back,img_home;
-   EditText edt_user_id,edt_pass;
+    ImageView img_back, img_home, iv_eye;
+    EditText edt_user_id,edt_pass;
     Typeface typeface,typeface_bold,typeface_medium,typeface_light,typeface_regular;
 
 
+    boolean password_visible = false;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -64,6 +66,10 @@ public class LoginActivity extends AppCompatActivity {
         tv_register=findViewById(R.id.tv_register);
         img_back=findViewById(R.id.img_back);
         tv_title=findViewById(R.id.tv_title);
+        iv_eye=findViewById(R.id.iv_eye);
+        edt_pass=findViewById(R.id.edt_pass);
+
+
         tv_title.setTypeface(typeface);
 
 
@@ -103,6 +109,41 @@ public class LoginActivity extends AppCompatActivity {
 
             }
         });
+
+
+
+
+        edt_pass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+        iv_eye.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (!password_visible){
+
+                    edt_pass.setInputType(InputType.TYPE_CLASS_TEXT
+                            | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                    iv_eye.setImageResource(R.mipmap.eye);
+
+                    password_visible = true;
+
+                }else {
+
+                    edt_pass.setInputType(InputType.TYPE_CLASS_TEXT
+                            | InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                    iv_eye.setImageResource(R.mipmap.invisible);
+
+                    password_visible = false;
+
+                }
+
+                edt_pass.setSelection(edt_pass.length());
+
+            }
+        });
+
+
+
 
 
     }
