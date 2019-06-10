@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.multidex.MultiDexApplication;
 import android.text.TextUtils;
 
 import com.android.volley.Request;
@@ -17,7 +18,7 @@ import java.util.HashMap;
  * Created by Developer on 3/ques/18.
  */
 
-public class GlobalClass extends Application {
+public class GlobalClass extends MultiDexApplication {
 
     String TAG = "app";
 
