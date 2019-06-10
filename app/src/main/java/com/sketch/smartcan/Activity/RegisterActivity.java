@@ -211,11 +211,9 @@ public class RegisterActivity extends AppCompatActivity {
                         globalClass.setId(user_id);
                         globalClass.setEmail(email);
                         globalClass.setFname(username);
-                        globalClass.setDeviceid(device_id);
                         globalClass.setPhone_number(phone);
                         globalClass.setLogin_status(true);
 
-                        prefrence.savePrefrence();
 
                         FancyToast.makeText(getApplicationContext(), message, FancyToast.LENGTH_LONG, FancyToast.SUCCESS, false).show();
                         Intent intent = new Intent(RegisterActivity.this, MainActivity.class);

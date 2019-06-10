@@ -35,6 +35,7 @@ import com.sketch.smartcan.NetworkCall.AppConfig;
 import com.sketch.smartcan.R;
 import com.sketch.smartcan.Util.Constants;
 import com.sketch.smartcan.Util.GlobalClass;
+import com.sketch.smartcan.Util.Shared_Preference;
 
 import org.json.JSONObject;
 
@@ -54,6 +55,8 @@ public class LoginActivity extends AppCompatActivity {
     Typeface typeface,typeface_bold,typeface_medium,typeface_light,typeface_regular;
 
     ProgressDialog progressDialog;
+    GlobalClass globalClass;
+    Shared_Preference preference;
 
     boolean password_visible = true;
 
@@ -93,7 +96,8 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setMessage(getResources().getString(R.string.loading));
 
-
+        globalClass = (GlobalClass) getApplicationContext();
+        preference = new Shared_Preference(this);
 
 
         buttonOnClick();
@@ -225,6 +229,13 @@ private static boolean emailValidate(String email){
             public void onClick(View v) {
 
 
+                if (!emailValidate(edt_user_id.getText().toString())){
+                    FancyToast.makeText(getApplicationContext(), "Enter valid email",
+                            FancyToast.LENGTH_LONG, FancyToast.WARNING, false)
+                            .show();
+                    return;
+                }
+
                 if (edt_user_id.getText().toString().trim().isEmpty()){
                     FancyToast.makeText(getApplicationContext(), "Enter user id",
                             FancyToast.LENGTH_LONG, FancyToast.WARNING, false)
@@ -299,6 +310,16 @@ private static boolean emailValidate(String email){
                             String device_id = data.optString("device_id");
 
 
+                            globalClass.setId(id);
+                            globalClass.setEmail(email);
+                            globalClass.setName(name);
+                            globalClass.setProfil_pic(profile_pic);
+
+                            globalClass.setLogin_status(true);
+
+
+                            preference.savePrefrence();
+
                             Intent intent = new Intent(LoginActivity.this, Container.class);
                             startActivity(intent);
 
@@ -311,7 +332,6 @@ private static boolean emailValidate(String email){
 
 
                         }
-
 
 
                     } catch (Exception e) {

@@ -116,36 +116,6 @@ public class Shared_Preference {
             pref_phone_number= globalclass.getPhone_number();
             editor.putString(PREF_phone_number,pref_phone_number);
 
-          //  pref_order_id= globalclass.getOrder_id();
-            editor.putString(PREF_order_id,pref_order_id);
-
-           // pref_order_type= globalclass.getType();
-            editor.putString(PREF_order_type,pref_order_type);
-
-           // pref_business=globalclass.getBusiness();
-            editor.putString(PREF_business,pref_business);
-
-
-            pref_profile_img = globalclass.getProfil_pic();
-            editor.putString(PREF_profile_img, pref_profile_img);
-
-           // pref_organisation = globalclass.getOrganization();
-            editor.putString(PREF_organisation, pref_organisation);
-
-            pref_cart_no = globalclass.getCart_no();
-            editor.putString(PREF_cart_no, pref_cart_no);
-
-
-            login_from = globalclass.getLogin_from();
-            editor.putString(PREF_login_from, login_from);
-
-          /*  pref_ship_address_id = globalclass.getShipping_id();
-            editor.putString(PREF_ship_address_id, pref_ship_address_id);
-
-            pref_ship_full_address = globalclass.getShipping_full_address();
-            editor.putString(PREF_ship_full_address, pref_ship_full_address);*/
-
-
 
 
             editor.commit();
@@ -188,16 +158,6 @@ public class Shared_Preference {
 
             pref_organisation=sharedPreferences.getString(PREF_organisation,"");
           //  globalclass.setOrganization(pref_organisation);
-
-            pref_cart_no=sharedPreferences.getString(PREF_cart_no,"");
-            globalclass.setCart_no(pref_cart_no);
-
-            pref_order_id=sharedPreferences.getString(PREF_order_id,"");
-           // globalclass.setOrder_id(pref_order_id);
-
-            pref_order_type=sharedPreferences.getString(PREF_order_type,"");
-          //  globalclass.setType(pref_order_type);
-
 
             pref_profile_img=sharedPreferences.getString(PREF_profile_img,"");
             globalclass.setProfil_pic(pref_profile_img);

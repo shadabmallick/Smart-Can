@@ -1,9 +1,11 @@
 package com.sketch.smartcan.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -18,47 +20,47 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.shashank.sony.fancytoastlib.FancyToast;
 import com.sketch.smartcan.AdapterClass.DataAdapter;
+import com.sketch.smartcan.AdapterClass.NewsAdapter;
 import com.sketch.smartcan.AndroidVersion;
+import com.sketch.smartcan.DataModel.NewsData;
 import com.sketch.smartcan.MainActivity;
+import com.sketch.smartcan.NetworkCall.AppConfig;
 import com.sketch.smartcan.R;
+import com.sketch.smartcan.Util.Constants;
+import com.sketch.smartcan.Util.GlobalClass;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 public class NewsActivity extends AppCompatActivity {
+
      String TAG="News";
+
+    RecyclerView recyclerView;
     LinearLayout llenquiry,llinfo,llblog;
+
+    ProgressDialog progressDialog;
 
     Typeface typeface_bold,typeface_medium,typeface_light,typeface_regular;
 
     TextView title,tv_new,tv_blog,tv_info,tv_enq;
-    private final String android_version_names[] = {
-            "What is Lorem Ipsum",
-            "What is Lorem Ipsum",
-            "What is Lorem Ipsum",
-            "What is Lorem Ipsum",
-            "What is Lorem Ipsum",
-            "What is Lorem Ipsum",
-            "What is Lorem Ipsum",
-            "What is Lorem Ipsum",
-            "What is Lorem Ipsum",
-            "What is Lorem Ipsum"
-    };
+
     ImageView enquiry,img_home;
 
-    private final String android_image_urls[] = {
-            "http://api.learn2crack.com/android/images/donut.png",
-            "http://api.learn2crack.com/android/images/eclair.png",
-            "http://api.learn2crack.com/android/images/froyo.png",
-            "http://api.learn2crack.com/android/images/ginger.png",
-            "http://api.learn2crack.com/android/images/honey.png",
-            "http://api.learn2crack.com/android/images/icecream.png",
-            "http://api.learn2crack.com/android/images/jellybean.png",
-            "http://api.learn2crack.com/android/images/kitkat.png",
-            "http://api.learn2crack.com/android/images/lollipop.png",
-            "http://api.learn2crack.com/android/images/marshmallow.png"
-    };
+    ArrayList<NewsData> newsDataArrayList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,12 @@ public class NewsActivity extends AppCompatActivity {
             window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(),
                     R.color.colorBlue));
         }
+
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setMessage(getResources().getString(R.string.loading));
+
 
         InitFont();
         initViews();
@@ -89,18 +97,19 @@ public class NewsActivity extends AppCompatActivity {
         tv_enq=findViewById(R.id.tv_enq_enquiry);
         tv_info=findViewById(R.id.tv_enq_info);
         tv_blog=findViewById(R.id.tv_enq_blog);
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.recyler_view_news);
-        //recyclerView.setHasFixedSize(true);
+
+        recyclerView = findViewById(R.id.recyler_view_news);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
+
+
         tv_new=findViewById(R.id.tv_enq_new);
         tv_enq=findViewById(R.id.tv_enq_enquiry);
         tv_info=findViewById(R.id.tv_enq_info);
         tv_blog=findViewById(R.id.tv_enq_blog);
 
-        ArrayList<AndroidVersion> androidVersions = prepareData();
-        DataAdapter adapter = new DataAdapter(getApplicationContext(),androidVersions);
-        recyclerView.setAdapter(adapter);
+
+
         enquiry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -135,6 +144,10 @@ public class NewsActivity extends AppCompatActivity {
             }
         });
 
+
+
+        getNews();
+
     }
     public  void InitFont(){
         AssetManager am = getApplicationContext().getAssets();
@@ -158,16 +171,102 @@ public class NewsActivity extends AppCompatActivity {
         tv_new.setTypeface(typeface_regular);
 
     }
-    private ArrayList<AndroidVersion> prepareData(){
 
-        ArrayList<AndroidVersion> android_version = new ArrayList<>();
-        for(int i=0;i<android_version_names.length;i++){
-            AndroidVersion androidVersion = new AndroidVersion();
-            androidVersion.setAndroid_version_name(android_version_names[i]);
-            androidVersion.setAndroid_image_url(android_image_urls[i]);
-            android_version.add(androidVersion);
-            Log.d(TAG, "prepareData: "+androidVersion.getAndroid_image_url());
-        }
-        return android_version;
+
+    private void getNews() {
+
+        newsDataArrayList = new ArrayList<>();
+
+        String tag_string_req = "req_login";
+
+        final String device_id = Settings.Secure.getString(getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+
+        progressDialog.show();
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                AppConfig.NEWS, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d(Constants.TAG, "Login Response: " + response.toString());
+
+                if (response != null){
+                    progressDialog.dismiss();
+                    try {
+
+                        JSONObject main_object = new JSONObject(response);
+
+
+                        int status = main_object.optInt("status");
+
+                        if (status == 1){
+
+                            JSONArray message = main_object.getJSONArray("message");
+
+                            for (int i = 0; i < message.length(); i++){
+
+                                JSONObject object = message.getJSONObject(i);
+
+                                NewsData newsData = new NewsData();
+                                newsData.setHeading(object.optString(""));
+                                newsData.setContent(object.optString(""));
+                                newsData.setShort_content(object.optString(""));
+                                newsData.setFile_name(object.optString(""));
+                                newsData.setDate(object.optString(""));
+
+                                newsDataArrayList.add(newsData);
+
+                            }
+
+
+                        }
+
+
+                        NewsAdapter newsAdapter =
+                                new NewsAdapter(NewsActivity.this, newsDataArrayList);
+                        recyclerView.setAdapter(newsAdapter);
+
+
+                    } catch (Exception e) {
+
+                        FancyToast.makeText(getApplicationContext(), "Connection error",
+                                FancyToast.LENGTH_LONG, FancyToast.WARNING, false).show();
+                        e.printStackTrace();
+
+                    }
+
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+
+            public void onErrorResponse(VolleyError error) {
+                Log.e(Constants.TAG, "DATA NOT FOUND: " + error.getMessage());
+                progressDialog.dismiss();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<>();
+
+                params.put("device_type", "android");
+                params.put("device_id", device_id);
+
+                Log.d(Constants.TAG, "login param: "+params);
+                return params;
+            }
+
+        };
+
+        // Adding request to request queue
+        GlobalClass.getInstance().addToRequestQueue(strReq, tag_string_req);
+        strReq.setRetryPolicy(new DefaultRetryPolicy(20 * 1000,
+                10, 1.0f));
+
     }
 }

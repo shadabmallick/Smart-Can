@@ -3,7 +3,6 @@ package com.sketch.smartcan.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -26,11 +25,11 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.sketch.smartcan.AdapterClass.DrawerListAdapter;
 import com.sketch.smartcan.DataModel.DrawerItem;
 import com.sketch.smartcan.Fragments.AboutUs;
@@ -44,7 +43,7 @@ import com.sketch.smartcan.Fragments.Profile;
 
 import com.sketch.smartcan.R;
 import com.sketch.smartcan.Util.GlobalClass;
-import com.sketch.smartcan.Util.PrefManager;
+import com.sketch.smartcan.Util.Shared_Preference;
 
 import java.util.ArrayList;
 import java.util.Locale;
@@ -58,12 +57,13 @@ public class Container extends AppCompatActivity
 
     DrawerLayout drawer;
     RecyclerView nav_drawer_recycler_view;
-    TextView toolbar_title;
+    TextView toolbar_title, tv_name;
     ImageView iv_add_complain;
     CircleImageView iv_user;
     RelativeLayout rel_profile;
 
-    PrefManager prefManager;
+
+    Shared_Preference prefManager;
     GlobalClass globalClass;
 
     Typeface typeface_bold, typeface_regular;
@@ -118,6 +118,8 @@ public class Container extends AppCompatActivity
 
 
         iv_add_complain = findViewById(R.id.iv_add_complain);
+        tv_name = findViewById(R.id.tv_name);
+        iv_user = findViewById(R.id.iv_user);
 
 
         drawer = findViewById(R.id.drawer_layout);
@@ -133,8 +135,18 @@ public class Container extends AppCompatActivity
         nav_drawer_recycler_view.setLayoutManager(new LinearLayoutManager(this));
 
 
-        prefManager = new PrefManager(this);
+        prefManager = new Shared_Preference(this);
         globalClass = (GlobalClass) getApplicationContext();
+        prefManager.loadPrefrence();
+
+        tv_name.setText(globalClass.getName());
+        Glide.with(this)
+                .load(globalClass.getProfil_pic())
+                .centerCrop()
+                .placeholder(R.mipmap.avatar)
+                .into(iv_user);
+
+
 
         mFragmentManager = getSupportFragmentManager();
 
@@ -284,7 +296,7 @@ public class Container extends AppCompatActivity
 
                 fragment = new Notification();
 
-      transactFragment(fragment);
+                transactFragment(fragment);
 
 
                 break;

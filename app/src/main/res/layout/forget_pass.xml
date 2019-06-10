@@ -14,11 +14,11 @@
         android:gravity="center_vertical"
         android:id="@+id/rl_main"
         android:layout_height="?android:attr/actionBarSize">
+
         <ImageView
             android:layout_width="40dp"
             android:layout_height="30dp"
             android:src="@mipmap/left_arrow"
-
             android:id="@+id/img_back"
             android:tint="@android:color/white"/>
 
@@ -35,6 +35,8 @@
             android:text="Forget Password"
             android:textColor="@android:color/white"
             android:textSize="16dp" />
+
+
         <ImageView
             android:id="@+id/img_home"
             android:layout_width="20dp"
@@ -46,6 +48,7 @@
             android:tint="@android:color/white"
             android:scaleType="fitEnd"
             />
+
     </RelativeLayout>
 
         <LinearLayout android:id="@+id/menu_ll"

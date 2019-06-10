@@ -7,6 +7,7 @@ public class AppConfig
 
     public static String  REGISTRATION = BASE_URL +  "registration";
     public static String  LOGIN        = BASE_URL +  "login";
+    public static String  NEWS        = BASE_URL +  "news";
 
 
 }
