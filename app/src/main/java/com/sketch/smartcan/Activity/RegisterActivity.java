@@ -180,7 +180,7 @@ public class RegisterActivity extends AppCompatActivity {
         pd.show();
 
         StringRequest strReq = new StringRequest(Request.Method.POST,
-                AppConfig.URL_DEV+"user_signup", new Response.Listener<String>() {
+                AppConfig.REGISTRATION, new Response.Listener<String>() {
 
             @Override
             public void onResponse(String response) {

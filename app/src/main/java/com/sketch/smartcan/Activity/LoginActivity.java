@@ -1,10 +1,12 @@
 package com.sketch.smartcan.Activity;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -20,13 +22,26 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.shashank.sony.fancytoastlib.FancyToast;
 import com.sketch.smartcan.MainActivity;
+import com.sketch.smartcan.NetworkCall.AppConfig;
 import com.sketch.smartcan.R;
 import com.sketch.smartcan.Util.Constants;
+import com.sketch.smartcan.Util.GlobalClass;
+
+import org.json.JSONObject;
 
 import java.util.EnumMap;
+import java.util.HashMap;
 import java.util.Locale;
+import java.util.Map;
 
 import static com.android.volley.Request.Method.HEAD;
 
@@ -38,8 +53,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText edt_user_id,edt_pass;
     Typeface typeface,typeface_bold,typeface_medium,typeface_light,typeface_regular;
 
+    ProgressDialog progressDialog;
 
-    boolean password_visible = false;
+    boolean password_visible = true;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,6 +87,11 @@ public class LoginActivity extends AppCompatActivity {
 
 
         tv_title.setTypeface(typeface);
+
+
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setMessage(getResources().getString(R.string.loading));
 
 
 
@@ -146,6 +167,7 @@ public class LoginActivity extends AppCompatActivity {
 
 
 
+
     }
 
 
@@ -202,13 +224,137 @@ private static boolean emailValidate(String email){
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(LoginActivity.this, Container.class);
-                startActivity(intent);
+
+                if (edt_user_id.getText().toString().trim().isEmpty()){
+                    FancyToast.makeText(getApplicationContext(), "Enter user id",
+                            FancyToast.LENGTH_LONG, FancyToast.WARNING, false)
+                            .show();
+
+                    return;
+                }
+
+                if (edt_pass.getText().toString().isEmpty()){
+                    FancyToast.makeText(getApplicationContext(), "Enter password",
+                            FancyToast.LENGTH_LONG, FancyToast.WARNING, false)
+                            .show();
+
+                    return;
+                }
+
+
+                login(edt_user_id.getText().toString(), edt_pass.getText().toString());
+
 
             }
         });
 
 
+
+    }
+
+
+
+
+    private void login(final String user_email, final String password) {
+        // Tag used to cancel the request
+        String tag_string_req = "req_login";
+
+        final String device_id = Settings.Secure.getString(getContentResolver(),
+                Settings.Secure.ANDROID_ID);
+
+        progressDialog.show();
+
+        StringRequest strReq = new StringRequest(Request.Method.POST,
+                AppConfig.LOGIN, new Response.Listener<String>() {
+
+            @Override
+            public void onResponse(String response) {
+                Log.d(Constants.TAG, "Login Response: " + response.toString());
+
+                if (response != null){
+                    progressDialog.dismiss();
+                    try {
+
+                        JSONObject main_object = new JSONObject(response);
+
+
+                        int status = main_object.optInt("status");
+                        String message = main_object.optString("message");
+
+                        if (status == 1){
+
+                             FancyToast.makeText(getApplicationContext(), message,
+                                     FancyToast.LENGTH_LONG, FancyToast.SUCCESS, false)
+                                     .show();
+
+                            JSONObject data = main_object.getJSONObject("data");
+
+
+                            String id = data.optString("id");
+                            String name = data.optString("name");
+                            String email = data.optString("email");
+                            String profile_pic = data.optString("profile_pic");
+                            String is_login = data.optString("is_login");
+                            String device_type = data.optString("device_type");
+                            String device_id = data.optString("device_id");
+
+
+                            Intent intent = new Intent(LoginActivity.this, Container.class);
+                            startActivity(intent);
+
+
+                        }else {
+
+                             FancyToast.makeText(getApplicationContext(), message,
+                                     FancyToast.LENGTH_LONG, FancyToast.ERROR, false)
+                                     .show();
+
+
+                        }
+
+
+
+                    } catch (Exception e) {
+
+                        FancyToast.makeText(getApplicationContext(), "Connection error",
+                                FancyToast.LENGTH_LONG, FancyToast.WARNING, false).show();
+                        e.printStackTrace();
+
+                    }
+
+                }
+
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+
+            public void onErrorResponse(VolleyError error) {
+                Log.e(Constants.TAG, "DATA NOT FOUND: " + error.getMessage());
+                progressDialog.dismiss();
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<>();
+
+                params.put("password", password);
+                params.put("email", user_email);
+                params.put("device_type", "android");
+                params.put("device_id", device_id);
+                params.put("fcm_token", "");
+
+                Log.d(Constants.TAG, "login param: "+params);
+                return params;
+            }
+
+        };
+
+        // Adding request to request queue
+        GlobalClass.getInstance().addToRequestQueue(strReq, tag_string_req);
+        strReq.setRetryPolicy(new DefaultRetryPolicy(20 * 1000, 10, 1.0f));
 
     }
 }

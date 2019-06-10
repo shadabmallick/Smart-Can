@@ -87,8 +87,10 @@ public class Shared_Preference {
     }
 
     public void savePrefrence() {
+
+
         if (globalclass.getLogin_status()) {
-           // remote_user_id=globalclass.getRemote_user_id();
+
             editor.putString(remote,remote_user_id);
             pref_logInStatus = globalclass.getLogin_status();
             editor.putBoolean(PREF_logInStatus, pref_logInStatus);
@@ -146,8 +148,6 @@ public class Shared_Preference {
 
 
 
-
-
             editor.commit();
 
         }else{
@@ -160,6 +160,7 @@ public class Shared_Preference {
     }
 
     public void loadPrefrence() {
+
         pref_logInStatus = sharedPreferences.getBoolean(PREF_logInStatus, false);
         globalclass.setLogin_status(pref_logInStatus);
 
@@ -197,13 +198,6 @@ public class Shared_Preference {
             pref_order_type=sharedPreferences.getString(PREF_order_type,"");
           //  globalclass.setType(pref_order_type);
 
-            /*pref_ship_address_id=sharedPreferences.getString(PREF_ship_address_id,"");
-            globalclass.setShipping_id(pref_ship_address_id);
-
-            pref_ship_full_address=sharedPreferences.getString(PREF_ship_full_address,"");
-            globalclass.setShipping_full_address(pref_ship_full_address);
-*/
-
 
             pref_profile_img=sharedPreferences.getString(PREF_profile_img,"");
             globalclass.setProfil_pic(pref_profile_img);
@@ -211,8 +205,6 @@ public class Shared_Preference {
 
             login_from=sharedPreferences.getString(PREF_login_from,"");
             globalclass.setLogin_from(login_from);
-
-
 
 
         }

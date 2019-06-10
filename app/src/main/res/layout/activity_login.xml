@@ -79,17 +79,15 @@
                 <EditText
                     android:id="@+id/edt_user_id"
                     android:hint="User Id"
-
                     android:singleLine="true"
                     android:textColor="@android:color/white"
-
                     android:textColorHint="@android:color/white"
                     android:backgroundTint="@android:color/holo_blue_light"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:padding="10dp"
-
+                    android:inputType="textEmailAddress"
                     />
 
             </LinearLayout>
@@ -106,8 +104,6 @@
                     android:tint="@android:color/white"
                     android:layout_gravity="center"
                     android:src="@mipmap/lock"/>
-
-
 
 
                 <RelativeLayout
