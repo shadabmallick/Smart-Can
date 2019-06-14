@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1091261829344",
+    "firebase_url": "https://smart-can-230b8.firebaseio.com",
+    "project_id": "smart-can-230b8",
+    "storage_bucket": "smart-can-230b8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1091261829344:android:ef601fbc273fbff2",
+        "android_client_info": {
+          "package_name": "com.smart.can"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1091261829344-9jkigqt8h25i8v2ooslfvo5pu16eil7g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smart.can",
+            "certificate_hash": "bb4df229e99a1ca143a6ca55d8076155cfc9dd8d"
+          }
+        },
+        {
+          "client_id": "1091261829344-5gk7gb4m954pq8viffanm6ihbrjahp8g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtXNvfxTlnB6PQcrAehgfCLd0SXEOw0DA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1091261829344-5gk7gb4m954pq8viffanm6ihbrjahp8g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
