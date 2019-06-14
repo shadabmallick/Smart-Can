@@ -88,6 +88,7 @@
                             android:autofillHints="Mobile"
                             android:hint="Mobile"
                             android:inputType="phone"
+                            android:singleLine="true"
                             />
 
                     </RelativeLayout>
@@ -127,6 +128,7 @@
                             android:autofillHints="Email"
                             android:hint="Email"
                             android:padding="10dp"
+                            android:singleLine="true"
                             android:inputType="textEmailAddress"
                             />
 
@@ -167,6 +169,7 @@
                             android:autofillHints="Address"
                             android:hint="Address"
                             android:padding="10dp"
+                            android:singleLine="true"
                             />
 
                     </RelativeLayout>
@@ -208,6 +211,7 @@
                             android:autofillHints="Company"
                             android:hint="Company"
                             android:padding="10dp"
+                            android:singleLine="true"
                             />
 
                     </RelativeLayout>
@@ -237,23 +241,42 @@
         </android.support.v7.widget.CardView>
 
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/profile_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@mipmap/profile_1"
-            app:civ_border_width="2dp"
-            app:civ_border_color="@color/colorBlue"
-            android:layout_centerHorizontal="true"
+        <RelativeLayout
+            android:id="@+id/rel_pic"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
             android:elevation="10dp"
-            />
+            android:layout_centerHorizontal="true"
+            >
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/profile_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/profile_1"
+                app:civ_border_width="2dp"
+                app:civ_border_color="@color/colorBlue"
+                android:layout_centerHorizontal="true"
+                />
+
+            <ImageView
+                android:id="@+id/iv_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/edit_pic"
+                android:layout_alignParentRight="true"
+                />
+
+        </RelativeLayout>
+
+
 
         <EditText
             android:id="@+id/edt_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/profile_image"
+            android:layout_below="@+id/rel_pic"
             android:layout_centerHorizontal="true"
             android:layout_margin="20dp"
             android:gravity="center"
@@ -263,6 +286,7 @@
             android:hint="Name"
             android:textSize="16sp"
             android:background="@null"
+            android:singleLine="true"
             android:elevation="10dp"
             />
 

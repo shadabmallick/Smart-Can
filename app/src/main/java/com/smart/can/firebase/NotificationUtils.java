@@ -66,17 +66,13 @@ public class NotificationUtils {
                         intent,
                         PendingIntent.FLAG_CANCEL_CURRENT
                 );
-
         final NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(
                 mContext);
 
-        /*final Uri alarmSound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE
-                + "://" + mContext.getPackageName() + "/raw/notification");*/
-
         final Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-
-        showSmallNotification(mBuilder, icon, title, message, timeStamp, resultPendingIntent, alarmSound);
+        showSmallNotification(mBuilder, icon, title, message, timeStamp, resultPendingIntent,
+                alarmSound);
         playNotificationSound();
 
     }
@@ -105,7 +101,6 @@ public class NotificationUtils {
 
         NotificationManager notificationManager = (NotificationManager)
                 mContext.getSystemService(Context.NOTIFICATION_SERVICE);
-
 
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
@@ -172,15 +167,11 @@ public class NotificationUtils {
     }
 
 
-
     public void playNotificationSound() {
         try {
 
             Uri alarmSound =
                     RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-            /*Uri alarmSound = Uri.parse(ContentResolver.SCHEME_ANDROID_RESOURCE
-                    + "://" + mContext.getPackageName() + "/raw/notification");*/
 
             Ringtone r = RingtoneManager.getRingtone(mContext, alarmSound);
             r.play();
